@@ -13,13 +13,13 @@ class client(Person):
         self.__asset = asset
 
     def show_asset(self):
-        print("자산:",self.asset)
+        print("자산:",self.__asset)
 
     def receive(self,owner,money):
         if type(owner) == client:
             self.owner = owner
-            owner.asset = owner.asset - money
-            self.asset = self.asset + money
+            owner.__asset = owner.__asset - money
+            self.__asset = self.__asset + money
         else:
             raise ValueError("Fuxx off")
 
@@ -35,4 +35,7 @@ class child(Person):
 
 Glen = client('Glen',28,'male',10000000)
 DJ = client('DJ',25,'male',10000000)
+DongHee = child('DongHee',23,'male','Giants')
 
+Glen.receive(DongHee,10000)
+Glen.show_asset()
