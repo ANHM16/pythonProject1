@@ -10,7 +10,7 @@ class Person():
 class client(Person):
     def __init__(self,name,age,gender,asset):
         super().__init__(name,age,gender)
-        self.asset = asset
+        self.__asset = asset
 
     def show_asset(self):
         print("자산:",self.asset)
